@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:image" content="assets/fb-share.png" />
+  <meta property="og:title" content="Univesp | Histórico Escolar" />
+  <meta property="og:description"
+  content="O que você sabe sobre História da Educação? Neste jogo, você pode testar seus conhecimentos e aprender mais sobre os principais marcos relacionados à Educação no Brasil, desde os tempos coloniais até o século XXI."/>
+  <title>Univesp | Histórico Escolar</title>
+
+  <link rel="shortcut icon" href="http://apps.univesp.br/common/favicon.ico" type="image/x-icon"/>
+
+  <!-- Arquivos Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
+  <!-- Ícones por Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <!-- Ícones por Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Tipografia institucional por Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Barlow:300,400,700|Open+Sans:400,400i,700,700i" rel="stylesheet">
+
+  <!-- Compartilhamento por jsSocials -->
+  <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
+  <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-minima.css" />
+
+  <!-- Animate CSS. Descomente se for utilizar. Caso contrário, remova. -->
+  <!-- <link rel="stylesheet" href="https://apps.univesp.br/common/animate.css"> -->
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="https://apps.univesp.br/common/rea-geral-2.0.css">
+  <link rel="stylesheet" href="stylesheets/nav_footer.css">
+  <link rel="stylesheet" href="stylesheets/main.css">
+
+
+</head>
+
+<body class="d-flex flex-column" style="background-color: #ffd789;">
+
+  <!-- Utilizar essa DIV caso o REA não se adapte a todos os tamanhos de tela -->
+  <!-- <div class="esconder-tela-pequena"> -->
+
+  <!-- Menu -->
+<nav>
+    <div class="container d-flex justify-content-end">
+
+      <div class="logo">
+
+        <a class="pularNavegacao" href="#conteudoPrincipal">Pular para Conteúdo Principal</a>
+        <a href="https://univesp.br/" target="_blank">
+          <img src="https://apps.univesp.br/common/colorida-positiva.svg" alt="Link para site institucional. Logotipo da universidade formado pela palavra Univesp em letras maiúsculas, sendo a letra V estilizada.">
+          <!-- outras opções de img src: colorida-negativa.svg, traco-positiva.svg, traco-negativa.svg -->
+        </a>
+
+      </div>
+
+      <ul class="nav justify-content-end">
+
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons" aria-label="Menu de acessibilidade">accessibility_new</i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            ...
+          </div>
+        </li> -->
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons" aria-label="Opções de Compartilhamento">share</i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <div class="sharing" id="share-buttons"></div>
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>
+
+<main id="conteudoPrincipal">
+  <!-- Conteúdo -->
+  <div class="container">
+    <div class="row" >
+      <div class="col-12 col-lg-4 regra">
+        <h2 style="color: #ffffc2; font-weight: 700; text-align: center;">COMO JOGAR</h2>
+        <p style="color: white; text-align: center; font-size: 16px;">A cada rodada, você receberá seis cartas com fatos relacionados à Educação. Seu desafio é colocar as cartas em ordem cronológica. Para isso:</p>
+        <ul style="color: white;">
+          <li><strong>1.&nbsp;</strong> Clique sobre uma das cartas e a arraste para o retângulo abaixo.</li>
+
+          <li><strong>2.&nbsp;</strong> Faça isso com as demais cartas, posicionando-as na ordem cronológica que você considera correta.</li>
+
+          <li><strong>3.&nbsp;</strong> Em seguida, clique no botão “confira a linha do tempo”.</li>
+
+          <li><strong>4.&nbsp;</strong> Você verá, então, o verso das cartas, com suas respectivas datas ou períodos. Se desejar, você pode trocar as cartas de lugar para corrigir sua linha do tempo.</li>
+
+          <li><strong>5.&nbsp;</strong> Não deixe de clicar no botão “saber mais” para conhecer um pouco sobre os fatos contidos nas cartas.</li>
+        </ul>
+        <p style="color: white; text-align: center; font-size:16px;">Bom jogo e bons estudos!</p>
+  </div>
+  <div class="col-12 col-lg-8 regra2">
+    <div class="header">
+  
+    <div id="successMessage">
+    <p>O Manifesto dos Pioneiros da Educação Nova, assinado por 26 intelectuais e educadores em 1932, tornou-se um marco da renovação educacional do país. Entre os inúmeros pontos explorados, o documento propunha que o Estado organizasse um plano geral de educação e defendia a bandeira de uma escola única, pública, laica, obrigatória e gratuita.
+</p>
+    <div class="botao6" onclick="fecharmensagem();">FECHAR</div>
+  </div>
+  <div id="successMessage2">
+    <p>A Reforma Protestante consistiu num movimento religioso de renovação da Igreja, iniciado no séc. XVI por Martinho Lutero e que conduziu à cisão da Igreja Cristã ocidental, a qual passou a estar dividida em Igreja Católica Romana, por um lado, e em algumas igrejas reformadas ou protestantes (Luterana, Calvinista e Anglicana), por outro.</p>
+    <div class="botao6" onclick="fecharmensagem2()">FECHAR</div>
+  </div>
+  <div id="successMessage3">
+    <p>A Companhia de Jesus é uma congregação religiosa fundada por Inácio de Loiola.
+Os jesuítas se caracterizam por ser uma congregação docente, ativa e missionária, moldando-se ao espírito que dominou a Contrarreforma. No domínio da educação distinguiram-se sobretudo pela criação de numerosos colégios (uma formação próxima do que se convencionou chamar de ensino secundário) e pela prática da catequese, voltada à conversão das populações indígenas ao catolicismo.</p>
+    <div class="botao6"onclick="fecharmensagem3()">FECHAR</div>
+  </div>
+  <div id="successMessage4">
+    <p>Escolas elementares que foram criadas pela Lei de 15/10/1827 – Lei Geral do Ensino. Constituíram-se no primeiro esforço do Brasil independente para criar uma malha de ensino capaz de difundir uma educação de nível primário no país. Durante o Império a criação dessas escolas esteve a cargo das províncias.</p>
+    <div class="botao6" onclick="fecharmensagem4()">FECHAR</div>
+  </div>
+  <div id="successMessage5">
+    <p>Foram criados inicialmente no Estado de  São Paulo em 1893, enquanto uma proposta de reunião de escolas isoladas agrupadas segundo a proximidade entre elas. Os grupos escolares foram responsáveis por um novo modelo de organização escolar no início da República, a qual  reunia  as principais características da escola graduada, um modelo utilizado no final do século XIX em diversos países da Europa e nos Estados Unidos.</p>
+    <div class="botao6" onclick="fecharmensagem5();">FECHAR</div>
+  </div>
+  <div id="successMessage6">
+    <p>Movimento de renovação da educação que remonta ao final do século XIX (até meados do século XX) e que se consubstancia na proposta de uma escola única, pública, ativa e laica, com a defesa de uma forte intervenção do Estado na área educacional. É parte de um conjunto de transformações que se operavam na economia, sociedade, política, cultura, de um lado e, de outro, uma resposta da pedagogia quanto ao fornecimento de novas respostas para a formação do homem de então.</p>
+    <div class="botao6" onclick="fecharmensagem6();">FECHAR</div>
+  </div>
+  <div id="successMessage7">
+    <p>Redigido por Fernando de Azevedo — um dos expoentes do movimento da Escola Nova na década de 1930 —, o texto é assinado por 189 intelectuais e personalidades públicas. Foi publicado no jornal “O Estado de S. Paulo” e marcou o início da “Campanha em Defesa da Escola Pública”, movimento que se estendeu até a assinatura da Lei de Diretrizes e Bases (LDB), em 1961.</p>
+    <div class="botao6" onclick="fecharmensagem7();">FECHAR</div>
+  </div>
+  <div id="successMessage8">
+    <p>Foi formulada em fins dos anos 1940 nos EUA e depois difundida pela América Latina. No Brasil sua delimitação foi dada pela Escola Superior de Guerra. Implicava, em linhas gerais, a manutenção da ordem política, social e econômica do país pela associação intrínseca entre segurança nacional, desenvolvimento e conformação ideológica, marcada sobretudo por um combate ferrenho ao comunismo.</p>
+    <div class="botao6" onclick="fecharmensagem8();">FECHAR</div>
+  </div>
+  <div id="successMessage9">
+    <p>Objetivou encontrar respostas para os problemas colocados pelos protestantes e pelos humanistas. Das conclusões saídas do Concílio de Trento destaca-se a centralização de poderes no Papa que passa a ser considerado como "Pastor Universal da Igreja", sendo-lhe atribuída toda a supremacia em matéria de dogmas e de disciplina. Por outro lado, foram estabelecidas diversas normas para evitar abusos e luxos do clero.</p>
+    <div class="botao6" onclick="fecharmensagem9();">FECHAR</div>
+  </div>
+  <div id="successMessage10">
+    <p>Também chamadas de reduções foram os aldeamentos indígenas 
+organizados e administrados pelos padres jesuítas no Novo Mundo, como parte de sua obra de cunho civilizador e 
+evangelizador. Ao mesmo tempo que representaram um instrumento de aculturação e deculturação das populações autóctones, as missões terminaram por desempenhar uma função protetiva, ao impor dificuldades para a exploração econômica e aprisionamento dos indígenas pelos colonos europeus na América.
+</p>
+    <div class="botao6" onclick="fecharmensagem10();">FECHAR</div>
+  </div>
+  <div id="successMessage11">
+    <p>Inspirada nos estabelecimentos de formação de professores criados pelas reformas napoleônicas em França no início do século XIX, a primeira Escola Normal brasileira foi criada em Niterói, província do Rio de Janeiro, em 1835. Nas primeiras décadas abrigou apenas estudantes do sexo masculino, sendo que a partir do final dos Oitocentos já era forte o movimento de feminização de seus cursos. Dividiu-se em cursos normais primários e secundários e possuiu o objetivo prioritário de formar professores para atuarem no magistério primário.</p>
+    <div class="botao6" onclick="fecharmensagem11();">FECHAR</div>
+  </div>
+  <div id="successMessage12">
+    <p>Escolas de ensino primário existentes em vários estados brasileiros no início do período republicano. Eram constituídas a partir da reunião de escolas isoladas ou singulares, as quais, depois de “reunidas”, passavam a funcionar em um mesmo espaço, objetivando a racionalização das atividades e a divisão do trabalho dos professores. Pensadas originalmente como provisórias, as escolas reunidas foram se incorporando ao sistema público de ensino, como resultado das demandas populares pela escola pública e pelas limitações impostas à implantação de grupos escolares, originadas de  critérios legais estabelecidos para a criação dos mesmos.</p>
+    <div class="botao6" onclick="fecharmensagem12();">FECHAR</div>
+  </div>
+  <div id="successMessage13">
+    <p>Foi o regime político brasileiro 
+instaurado por Getúlio Vargas em 10 de novembro de 1937, que vigorou até 31 de janeiro de 1946. 
+Caracterizou-se pela centralização do poder, nacionalismo, 
+anticomunismo e por seu autoritarismo. 
+</p>
+    <div class="botao6" onclick="fecharmensagem13();">FECHAR</div>
+  </div>
+  <div id="successMessage14">
+    <p>Foi articulado pela CNBB e patrocinado pelo governo federal. Iniciado pela atuação dos bispos de Aracaju e Natal – expandindo-se posteriormente para vários outros estados – baseava-se em experiências radiofônicas de aulas voltadas a jovens e adultos. </p>
+    <div class="botao6" onclick="fecharmensagem14();">FECHAR</div>
+  </div>
+  <div id="successMessage15">
+    <p>Essa obrigatoriedade foi estabelecida pelas leis 10.639 (2003) e 11.645 (2008), as quais impões a obrigatoriedade do ensino de "história e cultura afro-brasileira" e “história e cultura indígena”, respectivamente, no interior das disciplinas que já fazem parte das grades curriculares dos ensinos fundamental e 
+médio.</p>
+    <div class="botao6" onclick="fecharmensagem15();">FECHAR</div>
+  </div>
+  <div id="successMessage16">
+    <p>Conjunto de normas criado para regulamentar o ensino nos colégios jesuíticos. Alcançou status de norma para toda a Companhia de Jesus. Tinha por finalidade ordenar as atividades, funções e os métodos de avaliação nas escolas jesuíticas. Constituiu-se na ponte entre o ensino medieval e o moderno.</p>
+    <div class="botao6" onclick="fecharmensagem16();">FECHAR</div>
+  </div>
+  <div id="successMessage17">
+    <p>As reformas educacionais de Pombal visavam a três objetivos principais: trazer a educação para o controle do Estado, secularizar a educação e padronizar o currículo. Começa com a reforma da Universidade de Coimbra, em 1759 e a Reforma dos Estudos Maiores. No mesmo ano os jesuítas são expulsos dos territórios portugueses. Em 1772 as reformas atingem o nível elementar de ensino, momento em que se cria o Subsídio Literário, imposto específico para custear a abertura de escolas régias e pagar os professores.</p>
+    <div class="botao6" onclick="fecharmensagem17();">FECHAR</div>
+  </div>
+  <div id="successMessage18">
+    <p>Proposto e difundido pelos ingleses Andrew Bell, pastor da Igreja Anglicana e Joseph Lancaster, da seita dos Quakers, o método monitorial-mútuo se baseava no aproveitamento dos alunos mais adiantados como auxiliares do professor no ensino de classes numerosas. Esses alunos guindados à posição de monitores acabavam por ser investidos de função docente. O método, utilizado entre o final do século XVIII e metade do século XIX, supunha regras pré-determinadas, rigorosa disciplina e a distribuição hierarquizada dos alunos sentados em bancos dispostos num salão único e bem amplo.</p>
+    <div class="botao6" onclick="fecharmensagem18();">FECHAR</div>
+  </div>
+  <div id="successMessage19">
+    <p>A educação ocupa posição central no ideário libertário (fim do século XIX e início do século XX) e se expressa num duplo e concomitante movimento: a crítica à educação burguesa e a formulação da própria concepção pedagógica que se materializa na criação de escolas autônomas e autogeridas.  No aspecto crítico denuncia-se o uso da escola como instrumento de sujeição dos trabalhadores por parte do Estado, da Igreja e dos partidos. No aspecto propositivo estudam-se os autores libertários extraindo deles os principais conceitos educacionais como o de “educação integral” e “ensino racionalista”. </p>
+    <div class="botao6" onclick="fecharmensagem19();">FECHAR</div>
+  </div>
+  <div id="successMessage20">
+    <p>A Reforma Capanema, sob o nome de Leis Orgânicas do Ensino, estruturou o ensino industrial, reformou o ensino comercial e criou o Serviço Nacional de Aprendizagem Industrial (SENAI), como também trouxe mudanças no ensino secundário, organizando-o em dois ciclos: o ginasial, com quatro anos, e o colegial, com três anos. Também reorganizou o ensino primário, o ensino normal e o ensino agrícola, criando ainda o Serviço Nacional de Aprendizagem Comercial (SENAC).</p>
+    <div class="botao6" onclick="fecharmensagem20();">FECHAR</div>
+  </div>
+  <div id="successMessage21">
+    <p>Método de alfabetização de adultos compreendido não apenas como domínio das técnicas de leitura e escrita, mas como aquisição da capacidade de "leitura do mundo", de desenvolvimento da consciência crítica Baseia-se no uso de palavras geradoras, extraídas do universo vocabular dos alunos e os conteúdos são substituídos por situações concretas associadas à mundividência dos sujeitos.</p>
+    <div class="botao6" onclick="fecharmensagem21();">FECHAR</div>
+  </div>
+  <div id="successMessage22">
+    <p>Determina diretrizes, metas e estratégias para a política educacional brasileira no período de 2014 a 2024. Cumpre a função de articular os esforços nacionais em regime de colaboração, tendo como objetivos, entre outros: universalizar a oferta da etapa obrigatória (de 4 a 17 anos), elevar o nível de escolaridade da população, elevar a taxa de alfabetização, melhorar a qualidade da educação básica e superior e valorizar os profissionais da educação.</p>
+    <div class="botao6" onclick="fecharmensagem22();">FECHAR</div>
+  </div>
+  <div id="successMessage23">
+    <p>Era formada por padres seculares, foi responsável pela introdução em Portugal (onde sua presença foi maior), de experimentações científicas, depois de o terem feito por toda Europa católica. Dela fez parte Luís António Verney (1713-1792) autor de O Verdadeiro Método de Estudar. Os oratorianos foram os oponentes dos jesuítas no campo da pedagogia. Promoveram as ciências naturais, levando para Portugal o pensamento de Francis Bacon, Descartes, Gassendi, Locke e Antonio Genovesi. Defendiam a importância do estudo direto da língua, da gramática e da ortografia portuguesa sem a intermediação do latim.</p>
+    <div class="botao6" onclick="fecharmensagem23();">FECHAR</div>
+  </div>
+  <div id="successMessage24">
+    <p>Método de ensino que surgiu na Alemanha no final do século XVIII. Foi divulgado pelos discípulos de Pestalozzi no decorrer do século XIX na Europa e nos Estados Unidos. No Brasil, fez parte das propostas de reformulação da instrução pública no final do Império, tendo Rui Barbosa como um dos principais  defensores. Este, foi responsável por sistematizar os princípios do método intuitivo em seus famosos Pareceres e por traduzir as Lições de Coisas, de Calkins.</p>
+    <div class="botao6" onclick="fecharmensagem24();">FECHAR</div>
+  </div>
+  <div id="successMessage25">
+    <p>Criado na gestão de Anísio Teixeira quando à frente do INEP, o Centro Brasileiro de Pesquisas Educacionais representou um importante estímulo ao desenvolvimento de pesquisas em ciências sociais sobre questões relacionadas à educação brasileira, seja por meio da contratação de pesquisadores formados nessa área do conhecimento para integrar seus quadros permanentes, seja pelo financiamento a projetos em ciências sociais elaborados fora dessas instituições.</p>
+    <div class="botao6" onclick="fecharmensagem25();">FECHAR</div>
+  </div>
+            <div id="resposta1" class="ui-widget-content"></div>
+            <div id="resposta2" class="ui-widget-content"></div>
+            <div id="resposta3" class="ui-widget-content"></div>
+            <div id="resposta4" class="ui-widget-content"></div>
+            <div id="resposta5" class="ui-widget-content"></div>
+            <div id="resposta6" class="ui-widget-content"></div>
+            <div id="resposta7" class="ui-widget-content"></div>
+            <div id="resposta8" class="ui-widget-content"></div>
+            <div id="resposta9" class="ui-widget-content"></div>
+            <div id="resposta10" class="ui-widget-content"></div>
+            <div id="resposta11" class="ui-widget-content"></div>
+            <div id="resposta12" class="ui-widget-content"></div>
+            <div id="resposta13" class="ui-widget-content"></div>
+            <div id="resposta14" class="ui-widget-content"></div>
+            <div id="resposta15" class="ui-widget-content"></div>
+            <div id="resposta16" class="ui-widget-content"></div>
+            <div id="resposta17" class="ui-widget-content"></div>
+  </div>
+
+  <div class="draggable-item2" align="center">
+    <div class="botao2 reiniciar" style="display: none;">JOGAR NOVAMENTE</div>
+    <div class="botao2 inicio" style="display: none;">PÁGINA INICIAL</div>
+    <div class="botao4" style="display: none;">CONFIRA A LINHA DO TEMPO</div>
+  
+      <ul class=" droppable-area1 teste">
+        <li class="distancia" id="1932" value="12" style="display: none;">
+          <div class="flip-container">
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Manifesto dos pioneiros</p>
+               
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>1932</span><br>
+                Manifesto dos pioneiros</p>
+              </div>
+                <div id="myBtn" onclick="message();" class="botao3">Saber +</div>
+              </div>
+            </div>
+          </div>
+        </li>
+        
+        <li class="distancia" id="1517" value="1" style="display: none;">
+          <div class="flip-container">
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Reforma religiosa protestante</p>
+                
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>1517</span><br>
+                Reforma religiosa protestante</p>
+              </div>
+                <div id="myBtn" onclick="message2();" class="botao3">Saber +</div>          
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1534" value="2" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Companhia de Jesus</p>
+       
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>1534</span><br>
+                Companhia de Jesus</p>
+                </div><div id="myBtn" onclick="message3();" class="botao3">Saber +</div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="distancia" id="1827" value="8" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Escolas de primeiras letras</p>
+               
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>1827</span><br>
+                Escolas de primeiras letras</p></div><div id="myBtn" onclick="message4();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="distancia" id="1892" value="11" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Grupos escolares</p>
+            
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>Transição do século XIX para o XX</span><br>
+                Grupos escolares</p></div><div id="myBtn" onclick="message5();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1930" value="11" style="display: none;">
+          <div class="flip-container">
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Escola Nova ou Educação Nova</p>
+           
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>Fim do século XIX até meados do século XX</span><br>
+                Escola Nova ou Educação Nova</p></div><div id="myBtn" onclick="message6();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1959" value="17" style="display: none;">
+          <div class="flip-container">
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Manifestos “Mais uma vez convocados”</p>
+             
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>1959</span><br>
+                Manifestos “Mais uma vez convocados”</p></div><div id="myBtn" onclick="message7();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1948" value="14" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Doutrina de Segurança Nacional</p>
+     
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>Final dos anos 1940</span><br>
+                Doutrina de Segurança Nacional</p></div><div id="myBtn" onclick="message8();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1545" value="3" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Concílio de Trento</p>
+
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>1545-1563</span><br>
+                Concílio de Trento</p></div><div id="myBtn" onclick="message9();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1549" value="" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Missões jesuíticas</p>
+   
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>Séculos XVI-XVIII</span><br>
+                Missões jesuíticas</p></div><div id="myBtn" onclick="message10();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1835" value="9" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Escola Normal no Brasil</p>
+
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>1835</span><br>
+                Escola Normal no Brasil</p></div><div id="myBtn" onclick="message11();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1889" value="11" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Escolas reunidas</p>
+        
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>Início do período republicano</span><br>
+                Escolas reunidas</p></div><div id="myBtn" onclick="message12();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1937" value="13" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Estado Novo</p>
+    
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>1937</span><br>
+                Estado Novo</p></div><div id="myBtn" onclick="message13();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1961" value="18" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Movimento Educacional de Base (MEB)</p>
+ 
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>1961</span><br>
+                Movimento Educacional de Base (MEB)</p></div><div id="myBtn" onclick="message14();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="2003" value="20" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Obrigato - riedade do ensino de história e cultura afro-brasileira e indígena</p>
+      
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>2003-2008</span><br>
+                Obrigatoriedade do ensino de história e cultura afro-brasileira e indígena</p></div><div id="myBtn" onclick="message15();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1599" value="4" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Ratio Studiorum</p>
+      
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>1599</span><br>
+                Ratio Studiorum</p></div><div id="myBtn" onclick="message16();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1759" value="5" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Reformas pombalinas da instrução pública</p>
+      
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>1759-1772</span><br>
+                Reformas pombalinas da instrução pública</p></div><div id="myBtn" onclick="message17();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1830" value="18" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Método monitorial-mútuo</p>
+      
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>Final do século XVIII e primeira metade do século XIX</span><br>
+                Método monitorial-mútuo</p></div><div id="myBtn" onclick="message18();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1929" value="11" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Pedagogia libertária</p>
+      
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>Final do século XIX e início do século XX</span><br>
+                Pedagogia libertária</p></div><div id="myBtn" onclick="message19();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1942" value="15" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Reforma Capanema</p>
+      
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>1942-1946</span><br>
+                Reforma Capanema</p></div><div id="myBtn" onclick="message20();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1963" value="19" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Método Paulo Freire</p>
+      
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>1963</span><br>
+                Método Paulo Freire</p></div><div id="myBtn" onclick="message21();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="2014" value="21" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Plano Nacional de Educação</p>
+      
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>2014</span><br>
+                Plano Nacional de Educação</p></div><div id="myBtn" onclick="message22();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1660" value="6" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Congregação oratoriana</p>
+      
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>Século XVIII - maior presença em Portugal</span><br>
+                Congregação oratoriana</p></div><div id="myBtn" onclick="message23();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1860" value="10" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Método intuitivo</p>
+      
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>Século XIX</span><br>
+                Método intuitivo</p></div><div id="myBtn" onclick="message24();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="distancia" id="1955" value="16" style="display: none;">
+          <div class="flip-container" >
+            <div class="flipper">
+              <div class="front artist-1">
+                
+                <p>Centro Brasileiro de Pesquisas Educacionais</p>
+      
+              </div>
+              <div class="back">
+              <div class="caixa">
+                <p><span>1955</span><br>
+                Centro Brasileiro de Pesquisas Educacionais</p></div><div id="myBtn" onclick="message25();" class="botao3">Saber +</div>
+                
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+   <div class="draggable-item" align="center">
+        <ul class="connected-sortable droppable-area2 teste" align="center">
+          <li class="aro">
+            <p><strong>ORGANIZE SUAS CARTAS AQUI</strong><br>
+          </li>
+        </ul>
+      </div>  
+        <div class="regua correcao d-flex justify-content-around">
+            <div class="lin1" id="demo1" style="display: none;"></div>
+            <div class="lin2" id="demo2" style="display: none;"></div>
+            <div class="lin3" id="demo3" style="display: none;"></div>
+            <div class="lin4" id="demo4" style="display: none;"></div>
+            <div class="lin5" id="demo5" style="display: none;"></div>
+            <div class="lin6" id="demo6" style="display: none;"></div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <img style="max-width: 88%; height: auto;" class="bolinha" src="assets/bolinha2.png" alt="bolinha"/>
+          </div>
+
+            <div class="d-flex justify-content-between">
+              <div class="tempo1">PASSADO</div><div class="tempo1">PRESENTE</div>
+            </div>
+          </div>
+        </div>
+        <div align="center">
+              <p><i class="large material-icons iniciar3" style="display: none;">expand_more</i></p>
+          </div>
+</div>
+<section id="conteudo1" style="background-color: #ffffc2; padding-bottom: 2%; display: none;">
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>O que passou... passou?</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <img class="intro" src="assets/linha2.png">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="instrucao">
+            <p style="font-size: 16px;">Estudar os fundamentos históricos, filosóficos e sociológicos da Educação não se trata apenas de saber como era a Educação no passado, mas sim de compreender quais processos nos trouxeram até aqui, o que foi pensado e realizado até o presente.</p>
+            <p style="font-size: 16px;">Esse conhecimento é essencial para que o futuro professor, como você, possa pensar e realizar a Educação do futuro.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  </main>
+  <!-- Rodapé -->
+  <footer>
+    <div class="container d-flex justify-content-between align-items-center">
+
+      <div class="cred-rea">
+
+        <!-- Comente em caso de adaptação do REA -->
+        <p>
+          <span>Recurso Educacional Aberto (REA) desenvolvido pela <a href="https://univesp.br/" target="blank">Univesp</a>, disponível sob licença <a href="http://apps.univesp.br/common/license_MIT_2019.txt" target="_blank">MIT</a>.
+          Você pode utilizá-lo, compartilhá-lo e modificá-lo.</span>
+          <span><button class="btn btn-link" data-toggle="modal" data-target="#creditos">Créditos</button></span>.
+        <p>
+        <!-- Descomente em caso de adaptação do REA -->
+        <!-- <p>
+          <span>Recurso Educacional Aberto (REA) adaptado por SEU NOME.</span>
+          <span><a href="#">Versão original da Univesp</a></span>
+        </p> -->
+      </div>
+
+      <div class="aval-rea d-flex">
+        <!-- Atualizar "Nome+do+Recurso" -->
+        <a class="btn btn-secondary" href="https://forms.office.com/r/gHvHJVrM9t" target="_blank">Avaliar este recurso</a>
+        <!-- Atualizar "Nome+do+Recurso" -->
+        <a class="btn btn-secondary" href="https://forms.office.com/r/BU3heRJ9ZP" target="_blank">Reportar erro</a>
+      </div>
+
+    </div>
+  </footer>
+  <!-- Fim do rodapé -->
+
+  <!-- Fim da div .esconder-tela-pequena
+  Utilizar essa div caso o REA não se adapte a todos os formatos de tela -->
+  <!-- </div> -->
+
+  <!-- AVISO =+960px -->
+  <!-- Utilizar caso o REA possua limitações quanto aos tamanhos de tela
+  Caso contrário, deletar -->
+  <!-- <div class= "container d-lg-none text-center">
+    <div class="container">
+      <a href="https://univesp.br/" target="_blank">
+        <img src="https://apps.univesp.br/common/logo-univesp-positivo.svg" alt="Logo da Univesp" height="47px" width="135px" class='img-responsive center-block' style="margin-top:4rem">
+      </a>
+    </div>
+    <img src='https://apps.univesp.br/common/aviso-tela.gif' alt="Computador Animado" height="117px" width="160px" class='img-responsive center-block' style="margin-top:3rem">
+    <div style="margin-top:.5rem">
+      <p>
+        <font style=font-family:"Barlow" color="#3b78d1" 'text-center' size="10rem"><b>OPS!</b></font>
+      </p>
+      <p>
+        <font style=font-family:"Verdana" "text-center" size="3rem">Visualize este recurso em um computador, em janela com largura mínima de 992px.</font>
+      </p>
+    </div>
+  </div> -->
+
+  <!-- Créditos -->
+
+  <div class="modal fade" id="creditos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+
+          <h6>Governo do Estado de São Paulo</h6>
+          <p>Secretaria de Desenvolvimento Econômico</p>
+
+          <h6>Universidade Virtual do Estado de São Paulo – Univesp</h6>
+          <p><span class="funcao">Presidente</span>Rodolfo Jardim de Azevedo</p>
+          <p><span class="funcao">Diretora Acadêmica</span>Simone Telles Martins Ramos</p>
+          <p><span class="funcao">Coordenação</span>Édison Trombeta</p>
+
+          <h6>Equipe</h6>
+          <p><span class="funcao">Docente responsável</span>Roni Cléber Dias de Menezes</p>
+          <p><span class="funcao">DI responsável/Roteiro</span>Cida Azevedo</p>
+          <p><span class="funcao">Layout</span>Pedro Belém</p>
+          <p><span class="funcao">Programação</span>Celso de Oliveira</p>
+
+        </div>
+        <div class="modal-footer">
+          <p>Outubro/2019</p>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Arquivos Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://apps.univesp.br/common/jquery-ui-touch-punch.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+  <!-- jsSocials -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.min.js"></script>
+  <script>
+  var share = $("#share-buttons");
+  var page_title = $(document).attr('title');
+  var page_url = window.location.href;
+  share.jsSocials({
+    shares: [
+      {
+        share: "facebook",
+        label: "Facebook",
+        logo: "fab fa-facebook-f",
+      },
+      {
+        share: "twitter",
+        label: "Twitter",
+        logo: "fab fa-twitter",
+      },
+      {
+        share: "whatsapp",
+        label: "Whatsapp",
+        logo: "fab fa-whatsapp",
+      },
+    ],
+    url: page_url,
+    text: 'Confira o REA ' + page_title + '.',
+    showLabel: true,
+    showCount: false,
+    shareIn: "popup",
+  });
+  </script>
+
+
+  <!-- Custom JS -->
+  <script type="text/javascript" src="javascripts/events.js"></script>
+
+  <!-- MathJax. Descomente se for utilizar. Caso contrário, remova. -->
+  <!-- <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script> -->
+
+  <!-- Analytics. Remova em caso de reutilização do REA -->
+  <script src="https://apps.univesp.br/common/analytics.js"></script>
+
+</body>
+
+</html>
